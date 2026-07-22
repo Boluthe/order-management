@@ -66,10 +66,14 @@ public class OrderService {
     public Order cancelOrder(Long id) {
         Order order = getOrderById(id);
         
-        // flip it to CANCELLED and save
+        if (!order.getOrderStatus().canTransitionTo(OrderStatus.CANCELLED)) {
+            throw new InvalidStatusException("Cannot transition from " + order.getOrderStatus() + " to " + OrderStatus.CANCELLED);
+        }
+        
         order.setOrderStatus(OrderStatus.CANCELLED);
         order.setUpdatedAt(LocalDateTime.now());
         
         return orderRepository.save(order);
     }
+
 }
