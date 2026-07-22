@@ -124,6 +124,9 @@ Run the test suite using Maven:
 ```
 *(On Windows, use `mvnw.cmd test`)*
 
+### Manual API Testing
+For Postman testing results and endpoint verification, see [TESTING.md](./TESTING.md).
+
 ### Test Coverage
 * **`OrderServiceTest` (Unit Tests)**: Validates pure business logic using Mockito.
     * Tests successful order creation and total calculation.
