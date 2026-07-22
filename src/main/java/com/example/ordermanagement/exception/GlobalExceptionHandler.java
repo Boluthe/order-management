@@ -39,4 +39,11 @@ public class GlobalExceptionHandler {
         body.put("fields", errors);
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> handleIllegalArgument(IllegalArgumentException ex) {
+        Map<String, String> body = new HashMap<>();
+        body.put("error", "Invalid order status value");
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
 }
