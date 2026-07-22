@@ -12,6 +12,7 @@ public enum OrderStatus {
             return false;
         }
         return switch (this) {
+            //fix the order status transition to allo proper order transition 
             case PENDING -> newStatus == CONFIRMED || newStatus == CANCELLED;
             case CONFIRMED -> newStatus == READY_FOR_PICKUP || newStatus == CANCELLED;
             case READY_FOR_PICKUP -> newStatus == DELIVERED || newStatus == CANCELLED;

@@ -46,7 +46,6 @@ public class OrderService {
     }
 
     public Order getOrderById(Long id) {
-        // throw an exception if an error is gotten
         return orderRepository.findById(id)
                 .orElseThrow(() -> new OrderNotFoundException("Couldn't find order ID: " + id));
     }

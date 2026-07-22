@@ -37,7 +37,7 @@ public class Order {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    // returns the total 
+    // return the total 
     public double calculateTotal() {
         this.totalAmount = this.quantity * this.unitPrice;
         return this.totalAmount;
