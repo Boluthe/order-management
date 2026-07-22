@@ -25,8 +25,10 @@ order-management/
 │   └── test/java/com/example/ordermanagement/
 │       ├── controller/         # Integration tests with MockMvc
 │       └── service/            # Unit tests with Mockito
+├── screenshots/                # Postman API testing screenshots
 ├── pom.xml                     # Maven configuration
-└── README.md
+├── README.md
+└── TESTING.md                  # Manual API testing results
 ```
 
 ## API Endpoints
