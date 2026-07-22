@@ -5,8 +5,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -24,27 +31,11 @@ public class Order {
     private double totalAmount;
     private String deliveryAddress;
 
-    // PENDING, SHIPPED, DELIVERED
-    private String orderStatus;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
     
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
-
-    // Constructor
-    public Order(Long id, String customerName, String vendorName, String productName, int quantity, double unitPrice, double totalAmount, String deliveryAddress, String orderStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
-        this.customerName = customerName;
-        this.vendorName = vendorName;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.totalAmount = totalAmount;
-        this.deliveryAddress = deliveryAddress;
-        this.orderStatus = orderStatus;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
 
     // returns the total 
     public double calculateTotal() {
@@ -118,11 +109,11 @@ public class Order {
         this.deliveryAddress = deliveryAddress;
     }
 
-    public String getOrderStatus() {
+    public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(String orderStatus) {
+    public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
 
